@@ -16,7 +16,7 @@ If you want to convert a video in jpeg you can use:
 python export.py -o output/ -i video.mov
 ```
 
-f you want all the output images in gray scale you can use instead add ```-g``` arguments
+If you want all the output images in gray scale you can use instead add ```-g``` arguments
 
 example:
 
