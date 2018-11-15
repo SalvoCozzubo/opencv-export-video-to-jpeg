@@ -5,7 +5,7 @@ import argparse
 import os
 
 parser = argparse.ArgumentParser(description='Convert all frames of a video in jpeg images')
-parser.add_argument('--gray', '-g', help='Convert image in gray scale color', default=False, type=bool)
+parser.add_argument('--gray', '-g', help='Convert image in gray scale color', action='store_true')
 parser.add_argument('--output', '-o', help='Output directory', default='output')
 parser.add_argument('--input', '-i', help='Input video file', required=True)
 
