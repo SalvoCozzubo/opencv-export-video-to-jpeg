@@ -1,15 +1,31 @@
 # Export Video to Jpeg
-This project is a experimental use of OpenCV Library to convert all frames of a video in jpeg images. It produces an image for every second of the video.
-
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
+This project is a experimental use of OpenCV Library to convert all frames of a video in jpeg images. It produces an image for every second of the video.
+
 ### Installation
-Coming soon
+```
+git clone git@github.com:SalvoCozzubo/opencv-export-video-to-jpeg.git
+cd opencv-export-video-to-jpeg
+```
 
 ### Use
+
+If you want to convert a video in jpeg you can use:
 ```
-python3 export.py -o output/ -i video.mov -gray
+python export.py -o output/ -i video.mov
 ```
 
-### Know Issues
-- If the output's folder doesn't exists the script won't create it. You need to do so with mkdir command.
+f you want all the output images in gray scale you can use instead add ```-g``` arguments
+
+example:
+
+```
+python export.py -o output/ -i video.mov -g
+```
+
+Show all commands use ```-h```
+
+```
+python export.py -h
+```

@@ -1,37 +1,22 @@
 import cv2 as cv
 import math
 import sys
+import argparse
+import os
 
-args = sys.argv[::1]
+parser = argparse.ArgumentParser(description='Convert all frames of a video in jpeg images')
+parser.add_argument('--gray', '-g', help='Convert image in gray scale color', default=False, type=bool)
+parser.add_argument('--output', '-o', help='Output directory', default='output')
+parser.add_argument('--input', '-i', help='Input video file', required=True)
 
-DST_DIR = 'output'
+args = parser.parse_args()
 
-## output
-try:
-  indexOutput = args.index('-o')
-  
-  if (indexOutput + 1) < len(args):
-    DST_DIR = args[indexOutput + 1]
-except ValueError:
-  print('Output path is not in list')
+DST_DIR = args.output
+SRC_FILE = args.input
+GRAY = args.gray
 
-# input
-try:
-  indexInput = args.index('-i')
-
-  if (indexInput + 1) < len(args):
-    SRC_FILE = args[indexInput + 1]
-except ValueError:
-  print('Input path is not in list')
-
-GRAY = False
-# gray
-try:
-  indexGray = args.index('-gray')
-  GRAY = True
-except ValueError:
-  GRAY = False
-
+if not os.path.exists(DST_DIR):
+  os.makedirs(DST_DIR)
 
 video = cv.VideoCapture(SRC_FILE)
 index = 0
