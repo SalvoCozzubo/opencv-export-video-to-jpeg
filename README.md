@@ -3,6 +3,10 @@
 
 This project is a experimental use of OpenCV Library to convert all frames of a video in jpeg images. It produces an image for every second of the video.
 
+### Requirements
+- OpenCV 3+
+- Python 2.7+, 3.4+
+
 ### Installation
 ```
 git clone git@github.com:SalvoCozzubo/opencv-export-video-to-jpeg.git
