@@ -10,6 +10,7 @@ parser.add_argument('-o', '--output', help='Output directory', default='output')
 parser.add_argument('-i', '--input', help='Input video file', required=True)
 parser.add_argument('--all-frames', help='Convert all frames', action='store_true')
 parser.add_argument('--num-frames', help='Convert n frames from start', type=int, default=0)
+parser.add_argument('-n', '--inverted', help='Invert color', action='store_true')
 
 args = parser.parse_args()
 
@@ -18,6 +19,7 @@ SRC_FILE = args.input
 GRAY = args.gray
 ALL_FRAMES = args.all_frames
 NUM_FRAMES = args.num_frames
+INVERTED = args.inverted
 
 if not os.path.exists(DST_DIR):
   os.makedirs(DST_DIR)
@@ -38,6 +40,9 @@ while(video.isOpened()):
 
     if GRAY:
       frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    
+    if INVERTED:
+      frame = cv.bitwise_not(frame)
 
     cv.imwrite(filePath, frame)
 
